@@ -7,11 +7,10 @@ export const openNumberFile = (fileName) => {
     return lines.map((value) => parseInt(value));
 } 
 
-
-export const calculateIncreased = (lines) => lines.map((line, index) => {
-    if (index === 0) return 0;
-    return line > lines[index - 1] ? 1 : 0;
-})
+export const calculateIncreased = (lines) => {
+    if (lines.length === 1) return 0;
+    return (lines[0] < lines[1] ? 1 : 0) + calculateIncreased(lines.slice(1));
+}
 
 export const makeWindowArray = (array) => {
     const window = array.map((value, index) => {
