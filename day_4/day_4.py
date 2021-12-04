@@ -3,6 +3,7 @@ import numpy
 class BingoCard():
     def __init__(self, cardInput) -> None:
         self.card = [[[value, 0] for value in row] for row in cardInput]
+
     def mark(self, number) -> None:
         for row in self.card:
             for value in row:
@@ -11,10 +12,11 @@ class BingoCard():
 
     def flatten(self: list[list[(int, int)]]) -> list[(int, int)]:
         return sum(self.card, [])
+
     def isWon(self) -> bool:
         transpose = numpy.transpose(self.card).tolist()
         actualTranspose = [list(zip(numberRow, valueRow)) for numberRow, valueRow in zip(transpose[0], transpose[1])]
-                
+
         return any(BingoCard.isRowMarked(row) for row in self.card) \
             or any(BingoCard.isRowMarked(row) for row in actualTranspose)
 
