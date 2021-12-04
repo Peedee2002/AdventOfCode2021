@@ -13,9 +13,6 @@ export const calculateIncreased = (lines) => {
 }
 
 export const makeWindowArray = (array) => {
-    const window = array.map((value, index) => {
-        if (index === 0 || index === array.length - 1) return NaN;
-        return value + array[index - 1] + array[index + 1];
-    })
-    return window.filter((value) => !isNaN(value));
+    if (array.length < 3) return [];
+    return [array[0] + array[1] + array[2]].concat(makeWindowArray(array.slice(1)))
 }
