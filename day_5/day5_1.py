@@ -11,6 +11,7 @@ def interpolate_linear(beginning: tuple[int, int], end: tuple[int, int]):
         # vertical
         return [(x, beginning[1]) for x in rangeInclusive(*sorted([beginning[0], end[0]]))]
     else:
+        # return [] for part 1 sol
         [beginning, end] = sorted([beginning, end])
         return zip(rangeInclusive(beginning[0], end[0]), rangeInclusive(*sorted([end[1], beginning[1]]), beginning[1] > end[1]))
 
