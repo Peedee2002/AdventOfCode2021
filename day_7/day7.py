@@ -1,6 +1,6 @@
-def func(num):
-    # return num # for p1
-    return int((num * (num + 1))/2)
+def findFuelCost(difference: int):
+    # return difference # for p1
+    return int(difference * (difference + 1) / 2)
     
 
 if __name__ == '__main__':
@@ -8,6 +8,6 @@ if __name__ == '__main__':
         ls = [int(num) for num in f.readline().split(',')]
     print(
         min(
-            sum(func(abs(pos - num)) for num in ls) for pos in range(min(ls), max(ls))
+            sum(findFuelCost(pos - num) for num in ls) for pos in range(min(ls), max(ls))
         )
     )
