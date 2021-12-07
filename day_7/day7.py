@@ -8,8 +8,6 @@ if __name__ == '__main__':
         ls = [int(num) for num in f.readline().split(',')]
     print(
         min(
-            sum(
-                func(abs(pos - num)) for num in ls
-            ) for pos in range(min(ls), max(ls))
+            sum(func(abs(pos - num)) for num in ls) for pos in range(min(ls), max(ls))
         )
     )
