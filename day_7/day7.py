@@ -1,4 +1,5 @@
 def findFuelCost(difference: int):
+    difference = abs(difference)
     # return difference # for p1
     return int(difference * (difference + 1) / 2)
     
