@@ -12,13 +12,13 @@ class Path:
     def __init__(self, graph, values:list[str] = None) -> None:
         self.values = values if values != None else []
         self.graph = graph
-    def contains_two(self) -> bool:
+    def __contains_two(self) -> bool:
         return 2 in Counter([value for value in self.values if value.islower()]).values()
     def contains(self, node: str) -> bool:
         # return node in self.values and node.islower() # for part 1
         if node in ['start', 'end']:
             return node in self.values
-        elif self.contains_two():
+        elif self.__contains_two():
             return node in self.values and node.islower()
         else:
             return False
