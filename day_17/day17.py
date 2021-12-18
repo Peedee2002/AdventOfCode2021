@@ -1,8 +1,6 @@
 x_box, y_box = (244, 303), (-91, -54)
 def simulate(vx, vy):
-    x, y = 0, 0
-    landed = False
-    heights = []
+    x, y, landed, heights = 0, 0, False, []
     while x <= x_box[1] and y >= y_box[0]:
         heights.append(y)
         x , y, vx, vy = vx + x, vy + y, vx - 1 if vx > 0 else vx, vy - 1
