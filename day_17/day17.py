@@ -13,14 +13,8 @@ def simulate(vx, vy):
         landed = x_box[0] <= x <= x_box[1] and y_box[0] <= y <= y_box[1] if not landed else landed
     return landed, max(heights)
 
-
 if __name__ == '__main__':
-    heights = []
-    for vx in range(x_box[1] + 1):
-        # note: this is dumb because i have no maths to guarantee on the upper bound here
-        for vy in range(y_box[0], (y_box[1] - y_box[0]) * 3):
-            landed, height = simulate(vx, vy)
-            if landed:
-                heights.append(height)
+    # this shouldnt be allowed
+    heights = [simulate(vx, vy)[1] for vx in range(x_box[1] + 1) for vy in range(y_box[0], (y_box[1] - y_box[0]) * 3) if simulate(vx, vy)[0]]
     print(max(heights))
     print(len(heights))
