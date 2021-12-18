@@ -1,5 +1,4 @@
-x_box = (244, 303)
-y_box = (-91, -54)
+x_box, y_box = (244, 303), (-91, -54)
 def simulate(vx, vy):
     x, y = 0, 0
     landed = False
